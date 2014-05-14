@@ -60,8 +60,8 @@ void main_menu(void);
 
 int connect_to_kernel(void)
 {
-	struct sockaddr_ctl sc = {0};
-	struct ctl_info ctl_info = {0};
+	struct sockaddr_ctl sc = { 0 };
+	struct ctl_info ctl_info = { 0 };
 	int retv = 0;
 	
 	g_socket = socket(PF_SYSTEM, SOCK_DGRAM, SYSPROTO_CONTROL);
@@ -158,15 +158,38 @@ void execute_cmd(int cmd, char *args)
 
 	if(args != NULL) {
 		memcpy(data, args, strlen(args));
-		
-		data_len = strlen(data) + 1;
 	}
+	
+	data_len = strlen(data) + 1;
 	
 	retv = setsockopt(g_socket, SYSPROTO_CONTROL, cmd, (void *)data, (socklen_t)data_len);
 	
 	if(retv != 0) {
 		printf("[ERROR] Kernel command execution failed:\n");
 		printf("\t%s (%d)\n", strerror(errno), errno);
+		
+		return;
+	}
+}
+
+void get_data()
+{
+	char *data = malloc(32);
+	
+	socklen_t data_len = 32;
+	
+	int retv = getsockopt(g_socket, SYSPROTO_CONTROL, 0, data, &data_len);
+	
+	if(retv != 0) {
+		printf("[ERROR] getsockopt()\n");
+		
+		return;
+	}
+	
+	size_t r = recv(g_socket, data, data_len, 0);
+
+	if(r == 0) {
+		printf("[ERROR] recv()\n");
 		
 		return;
 	}

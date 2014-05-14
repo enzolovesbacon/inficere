@@ -38,6 +38,6 @@
 
 kern_return_t install_kctl(void);
 kern_return_t remove_kctl(void);
-kern_return_t queue_userland_data(pid_t pid);
+kern_return_t queue_userland_data(void *data);
 
 #endif

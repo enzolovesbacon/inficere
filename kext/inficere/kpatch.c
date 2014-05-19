@@ -181,14 +181,14 @@ kern_return_t patch_kauth(int cmd)
 kern_return_t patch_singlestep(int cmd)
 {
 	u_int64_t msr;
-	int i, k, mask;
+	int i, mask;
 	
 	/* read current debug MSR */
 	msr = rdmsr64(MSR_IA32_DEBUGCTLMSR);
 	
 	for(i = 7; i >= 0; i--) {
 		mask = 1 << i;
-		k = msr & mask;
+		//k = msr & mask;
 	}
 	
 	/* enable only that bit 1 */
@@ -199,7 +199,7 @@ kern_return_t patch_singlestep(int cmd)
 	
 	for(i = 7; i >= 0; i--) {
 		mask = 1 << i;
-		k = msr & mask;
+		//k = msr & mask;
 	}
 	
 	return KERN_SUCCESS;

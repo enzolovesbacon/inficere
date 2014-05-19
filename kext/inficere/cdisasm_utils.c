@@ -47,6 +47,11 @@ static kern_return_t disasm_jumps(mach_vm_address_t start, struct patch_location
 csh *init_capstone()
 {
 	csh *handle = _MALLOC(sizeof(csh), M_TEMP, M_WAITOK);
+	
+	if(handle == NULL) {
+		return CS_ERR_MEM;
+	}
+	
 	cs_opt_mem setup;
 	
 	/* setup our memory functions */

